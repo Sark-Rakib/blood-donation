@@ -1,12 +1,16 @@
-import './globals.css';
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
-import { ThemeProvider } from '@/context/ThemeContext';
-import { ToastProvider } from '@/context/ToastContext';
+import "./globals.css";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import { ThemeProvider } from "@/context/ThemeContext";
+import { ToastProvider } from "@/context/ToastContext";
 
 export const metadata = {
-  title: 'BloodConnect - Blood Donation Platform',
-  description: 'Connect blood donors with those in need. Register as a donor, find donors by blood group, and help save lives.',
+  title: "BloodConnect - Blood Donation Platform",
+  description:
+    "Connect blood donors with those in need. Register as a donor, find donors by blood group, and help save lives.",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({ children }) {

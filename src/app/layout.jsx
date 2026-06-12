@@ -9,7 +9,7 @@ export const metadata = {
   description:
     "Connect blood donors with those in need. Register as a donor, find donors by blood group, and help save lives.",
   icons: {
-    icon: "/favicon.png",
+    icon: [{ url: "/favicon.png", type: "image/svg+xml" }],
   },
 };
 

@@ -1,13 +1,34 @@
 import HeroSection from '@/components/layout/HeroSection';
 import StatsCard from '@/components/ui/StatsCard';
 import Badge from '@/components/ui/Badge';
+import { connectDB } from '@/lib/db';
+import Donor from '@/lib/models/Donor';
 
 async function getStats() {
   try {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
-    const res = await fetch(`${baseUrl}/api/stats`, { cache: 'no-store' });
-    if (!res.ok) return { total: 0, available: 0, byGroup: [] };
-    return res.json();
+    await connectDB();
+    const donors = await Donor.find({}).lean({ virtuals: true });
+    const total = donors.length;
+
+    const now = new Date();
+    const available = donors.filter((d) => {
+      if (!d.lastDonationDate) return false;
+      const nextDate = new Date(d.lastDonationDate);
+      nextDate.setDate(nextDate.getDate() + 120);
+      return nextDate <= now;
+    }).length;
+
+    const bloodGroupCounts = {};
+    for (const d of donors) {
+      const bg = d.bloodGroup;
+      bloodGroupCounts[bg] = (bloodGroupCounts[bg] || 0) + 1;
+    }
+
+    const byGroup = Object.entries(bloodGroupCounts)
+      .map(([group, count]) => ({ group, count }))
+      .sort((a, b) => a.group.localeCompare(b.group));
+
+    return { total, available, byGroup };
   } catch {
     return { total: 0, available: 0, byGroup: [] };
   }

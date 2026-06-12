@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import ThemeToggle from "@/components/ui/ThemeToggle";
+import { BiDonateBlood } from "react-icons/bi";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -21,7 +22,9 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-2 shrink-0">
-            <span className="text-2xl">🩸</span>
+            <span className="text-2xl text-red-500">
+              <BiDonateBlood />
+            </span>
             <span className="text-xl font-bold text-red-600">DMYA</span>
           </Link>
 

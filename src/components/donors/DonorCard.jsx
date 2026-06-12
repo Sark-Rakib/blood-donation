@@ -32,13 +32,13 @@ export default function DonorCard({ donor }) {
         <div className="mt-auto pt-3 space-y-1.5 text-sm">
           <div className="flex items-center justify-between">
             <span className="text-gray-500 dark:text-gray-400">Phone:</span>
-            <Link
+            <a
               href={`tel:${donor.phone}`}
               onClick={(e) => e.stopPropagation()}
               className="text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 font-medium"
             >
               {donor.phone}
-            </Link>
+            </a>
           </div>
           <div className="flex items-center justify-between">
             <span className="text-gray-500 dark:text-gray-400">

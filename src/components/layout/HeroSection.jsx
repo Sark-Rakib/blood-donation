@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BiDonateBlood } from "react-icons/bi";
 
 export default function HeroSection() {
   return (
@@ -15,7 +16,9 @@ export default function HeroSection() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
         <div className="text-center max-w-3xl mx-auto">
           <div className="flex justify-center mb-6">
-            <span className="text-6xl">🩸</span>
+            <span className="text-6xl text-red-500">
+              <BiDonateBlood />
+            </span>
           </div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
             Donate Blood, <span className="text-red-200">Save Lives</span>

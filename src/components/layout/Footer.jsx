@@ -1,3 +1,6 @@
+import Link from "next/link";
+import { BiDonateBlood } from "react-icons/bi";
+
 export default function Footer() {
   return (
     <footer className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 mt-auto">
@@ -5,7 +8,9 @@ export default function Footer() {
         <div className="grid gap-8 sm:grid-cols-3">
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <span className="text-xl">🩸</span>
+              <span className="text-3xl text-red-600">
+                <BiDonateBlood />
+              </span>
               <span className="text-lg font-bold text-red-600">
                 DHUNATMOR YOUTH ASSOCIATION
               </span>
@@ -21,28 +26,28 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2 text-sm text-gray-500 dark:text-gray-400">
               <li>
-                <a
+                <Link
                   href="/donors"
                   className="hover:text-red-600 dark:hover:text-red-400 transition-colors"
                 >
                   Find Donors
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/register"
                   className="hover:text-red-600 dark:hover:text-red-400 transition-colors"
                 >
                   Register as Donor
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/dashboard"
                   className="hover:text-red-600 dark:hover:text-red-400 transition-colors"
                 >
                   Dashboard
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
